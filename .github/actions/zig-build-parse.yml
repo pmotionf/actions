@@ -1,0 +1,11 @@
+name: Zig Build Parse
+description: Parse a `build.zig.zon` file for a project's name and version.
+
+runs:
+  steps:
+    - name: Parse `build.zig.zon`
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const script = require('./.github/actions/zig-build-parse.js');
+          script({github, context});
